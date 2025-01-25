@@ -1,0 +1,28 @@
+.page-link {
+    display: flex;
+    @include sqare-shape-mod-2(18);
+    @include flex-all-centered;
+    border-radius: 4px !important;
+    color: $page-link-color;
+    cursor: pointer;
+}
+
+.filters-wrapper {
+    align-items: end;
+}
+
+.pagination-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.pagination-holder{
+    display: flex;
+    flex-direction: row;
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+}

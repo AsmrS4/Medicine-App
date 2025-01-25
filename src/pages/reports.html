@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/styles/app.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <title>Medicine App</title>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid custom">
+                <div class="navbar__logo">
+                    <div class="navbar__icon"><img src="/images/skull.svg.svg" alt="skull"></div>
+                    <div class="navbar__title"><span class="fw-normal">Try not to</span><span
+                            class="fw-bolder">DIE</span></div>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav custom me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link text-white" href="/patients" data-link>Пациенты</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="/consultations"
+                                data-link>Консультации</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="/reports" data-link>Отчеты и
+                                статистика</a></li>
+                    </ul>
+                    <li class="nav-item">
+                        <div class="navbar__menu">
+                            <div class="dropdown">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link overflowed" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false"><span class="nav-username">Вход</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item nav-link" id="logout-a" href="/login">Выйти</a></li>
+                            <li><a class="dropdown-item nav-link" href="/profile">Профиль</a></li>
+                        </ul>
+                    </li>
+                </div>
+            </div>
+            </li>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <div id="app">
+        <div class="container-lg wrapper-container">
+            <div class="mb-3 page-title-wrapper">
+                <h1 class="page-title fw-bolder">Статистика осмотров</h1>
+            </div>
+            <div class="container-lg filter-card">
+                <h6 class="fw-bolder mb-3">Статистика осмотров</h6>
+                <div class="row row-cols-2">
+                    <div class="col mb-3">
+                        <label for="start-date" class="form-label">Дата с</label>
+                        <input class="form-control" id="start-date" type="date">
+                        <label for="start-date" id="start-date-label" class="form-label error d-none"></label>
+                    </div>
+                    <div class="col mb-3">
+                        <label for="end-date" class="form-label">Дата по</label>
+                        <input class="form-control" id="end-date" type="date">
+                        <label for="end-date" id="end-date-label" class="form-label error d-none"></label>
+                    </div>
+                </div>
+                <div class="row mb-3 justify-content-between">
+                    <div class="col">
+                        <label for="roots-select" class="form-label">МКБ-10</label>
+                        <select class="form-select multiple-select" id="roots-select">
+                        </select>
+                    </div>
+                </div>
+                <div class="row w-100 justify-content-between filters-wrapper mt-3">
+                    <div class="col-3">
+                        <button type="button" class="btn btn-primary rounded" id="save-report-btn">Сохранить
+                            сводку</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nothing d-none">
+                <h2 class="nothing-text">Осмотров за указанный период не найдено</h2>
+            </div>
+            <div class="container-lg table-responsive-lg report-container d-none">
+                <div class="report-date">
+                    <span class="report-date-span">Отчет осмотров пациентов</span>
+                </div>
+                <table class="table table-bordered">
+                    <thead class="report-table-head">
+                        <tr class="report-row" id="table-heads">
+                        </tr>
+                    </thead>
+                    <tbody class="report-table-body" id="table-body">
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="scripts/reports/reports.js"></script>
+</body>
+
+</html>

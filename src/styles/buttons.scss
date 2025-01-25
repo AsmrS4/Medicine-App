@@ -1,0 +1,89 @@
+#search-btn {
+    margin-top: 10px;
+    width: 100%;
+}
+
+#register-new-patient-btn {
+    width: auto;
+    padding: 10px 20px;
+    @include flex-row;
+
+    .add-icon {
+        @include sqare-shape-mod-2(12);
+        margin-right: 10px;
+    }
+}
+
+.login-form__submit-btn,
+.login-form__register-btn {
+    width: 100%;
+}
+
+.btn {
+    border-radius: 3px !important;
+    border: none !important;
+}
+
+.btn.btn-primary {
+    background-color: $button-color !important;
+}
+
+.btn.btn-secondary {
+    background-color: $button-secondary-color !important;
+}
+
+.detail {
+    @include flex-row;
+    align-items: center;
+    margin-left: 10px;
+
+    img {
+        margin-right: 2px;
+    }
+
+    span {
+        font-size: 12px;
+        color: $blue-color;
+        width: auto;
+        white-space: nowrap;
+    }
+}
+
+.form-control,
+.form-select {
+    border-radius: 3px !important;
+}
+
+.form-check {
+    label {
+        color: #4d5b64;
+    }
+}
+
+.switch-lg {
+    height: 24px;
+    width: 40px !important;
+}
+
+.button-wrapper {
+    @include flex-row;
+    width: auto
+}
+
+#save-btn {
+    width: auto;
+    white-space: nowrap;
+}
+
+button {
+    white-space: nowrap;
+}
+
+.show-inner {
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin-right: 4px;
+    width: 24px;
+    height: 24px;
+    background-color: $button-color;
+}

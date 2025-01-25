@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/styles/app.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <title>Medicine App</title>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid custom">
+                <div class="navbar__logo">
+                    <div class="navbar__icon"><img src="/images/skull.svg.svg" alt="skull"></div>
+                    <div class="navbar__title"><span class="fw-normal">Try not to</span><span
+                            class="fw-bolder">DIE</span></div>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav custom me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link text-white" href="/patients" data-link>Пациенты</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="/consultations"
+                                data-link>Консультации</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="/reports" data-link>Отчеты и
+                                статистика</a></li>
+                    </ul>
+                    <li class="nav-item">
+                        <div class="navbar__menu">
+                            <div class="dropdown">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link overflowed" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false"><span class="nav-username">Вход</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item nav-link" id="logout-a" onclick="logoutDoctor()">Выйти</a></li>
+                            <li><a class="dropdown-item nav-link" href="/profile">Профиль</a></li>
+                        </ul>
+                    </li>
+                </div>
+            </div>
+            </li>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <div id="app">
+        <div class="container-lg wrapper-container">
+            <div class="mb-3 page-title-wrapper">
+                <h1 class="page-title fw-bolder">Консультации</h1>
+            </div>
+            <div class="container-lg filter-card">
+                <div class="row row-cols-3 w-100 mb-3 justify-content-between">
+                    <div class="col-6">
+                        <label for="diagnosis-select" class="form-label">МКБ-10</label>
+                        <select class="form-select multiple-select" id="diagnosis-select">
+                        </select>
+                    </div>
+                    <div class="col-5">
+                        <label for="inspection-grouped" class="form-label">Группировка</label>
+                        <select class="form-select" id="inspection-grouped">
+                            <option value="false">Показать все</option>
+                            <option value="true">Сгруппировать по повторным</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row row-cols-2 w-100 justify-content-between filters-wrapper ">
+                    <div class="col-4">
+                        <label for="count-select" class="form-label">Число осмотров на странице</label>
+                        <select class="form-select" id="count-select">
+                            <option value="4">4</option>
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-primary rounded" id="search-btn">Поиск</button>
+                    </div>
+                </div>
+            </div>
+            <div class="nothing d-none">
+                <h2 class="nothing-text">Ничего не найдено</h2>
+            </div>
+            <div class="container-lg consultation-card-holder my-4">
+
+            </div>
+            <div class="row pagination-holder">
+                <ul class="pagination gap-2 ps-3 pe-3"></ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="utils/pagination.js"></script>
+    <script type="module" src="scripts/consultation/consultation.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+export  const URL_RESOURCE = 'https://mis-api.kreosoft.space/api/';
+export const INVALID_EMAIL_FORMAT = "Неверный формат Email";
+export const EMPTY_FIELD_ERROR = "Поле не должно быть пустым";
+export const INVALID_PASSWORD_LENGTH = "Длина пароля должна быть больше 6 символов";
+export const INVALID_LOGIN = "Неверный логин или пароль";
+export const EMAIL_EXIST_ERROR = "Этот Email уже занят";
+export const INVALID_PHONE_FORMAT = "Неверный формат телефона";
+export const EMPTY_LIST = "Ничего не найдено";
+export const BIRTHDATE_ERROR = "Дата рождения не может быть больше текущего дня";
+export const SPECIALITY_AlREADY_TAKEN = "Консультация у этого врача уже выбрана. Выберите другого";
+export const DEATH_LABEL = "Дата и время смерти";
+export const NEXTDATE_LABEL = "Дата следующего визита";

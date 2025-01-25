@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/styles/app.css">
+    <title>Medicine App</title>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid custom">
+                <div class="navbar__logo">
+                    <div class="navbar__icon"><img src="/images/skull.svg.svg" alt="skull"></div>
+                    <div class="navbar__title"><span class="fw-normal">Try not to</span><span
+                            class="fw-bolder">DIE</span></div>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav custom me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link text-white" href="/patients" data-link>Пациенты</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="/consultations"
+                                data-link>Консультации</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="/reports" data-link>Отчеты и
+                                статистика</a></li>
+                    </ul>
+                    <li class="nav-item">
+                        <div class="navbar__menu">
+                            <div class="dropdown">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link overflowed" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false"><span class="nav-username">Вход</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item nav-link" id="logout-a" onclick="logoutDoctor()">Выйти</a></li>
+                            <li><a class="dropdown-item nav-link" href="/profile">Профиль</a></li>
+                        </ul>
+                    </li>
+                </div>
+            </div>
+            </li>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <div id="app">
+        <div class="container base-form">
+            <h1 class="base-from__title fw-bolder">Профиль</h1>
+            <form action="#" class="profile-form">
+                <div class="mb-3">
+                    <label for="username-field" class="form-label">Имя</label>
+                    <input type="text" class="form-control" id="username-field" placeholder="Иванов Иван Иванович">
+                    <label for="username-field" id="username-label" class="form-label error d-none">Поле не должно быть пустым</label>
+                </div>
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col">
+                            <label for="gender-select" class="form-label">Пол</label>
+                            <select class="form-select" id="gender-select">
+                                <option value="Male">Мужской</option>
+                                <option value="Female">Женский</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="birthdate" class="form-label">Дата рождения</label>
+                            <input class="form-control" id="birthdate" name="birthdate" type="date">
+                            <label for="birthdate" id="birthdate-label" class="form-label error d-none">Дата рождения не может быть больше
+                                текущего дня</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="phone-field" class="form-label">Телефон</label>
+                    <input type="text" class="form-control" id="phone-field" placeholder="+7 (xxx) xxx xx-xx">
+                    <label for="phone-field" id="phone-label" class="form-label error d-none">Неккоректный формат</label>
+                </div>
+                <div class="mb-3">
+                    <label for="email-field" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email-field" placeholder="name@example.com">
+                    <label for="email-field" id="email-label" class="form-label error d-none">Неккоректный формат Email</label>
+                </div>
+                <button class="btn btn-primary login-form__submit-btn" type="button">Сохранить изменения</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="scripts/doctor/profile.js"></script>
+</body>
+
+</html>

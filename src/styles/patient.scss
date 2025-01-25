@@ -1,0 +1,53 @@
+.card-head {
+    @include flex-row;
+    justify-content: space-between;
+}
+
+.card-details {
+    @include flex-row;
+    justify-content: space-between;
+}
+
+.select2.select2-container.select2-container--default {
+    width: 100% !important;
+    min-height: 37.2px !important;
+    height: auto !important;
+}
+
+#my-patients-only, #planned-visits {
+    height: 30px;
+    width: 60px;
+    margin-right: 8px
+}
+
+.select2.select2-container.select2-container--default.select2-container--below {
+    height: 37.2px !important;
+    height: auto !important;
+}
+
+.modal-content {
+    padding: 15px 20px;
+}
+
+.modal-body {
+    padding: 20px 0;
+}
+
+.gender-icon {
+    margin-left: 10px;
+}
+
+.page-title-wrapper.inner {
+    @media (max-width:576px) {
+        @include flex-column;
+        align-items: flex-start;
+
+    }
+}
+#inspection-create-filter {
+    @media(max-width:576px) {
+        .col-6{
+            width: 100%;
+        }
+    }
+}

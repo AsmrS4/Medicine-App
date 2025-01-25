@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/styles/app.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid custom">
+                <div class="navbar__logo">
+                    <div class="navbar__icon"><img src="/images/skull.svg.svg" alt="skull"></div>
+                    <div class="navbar__title"><span class="fw-normal">Try not to</span><span
+                            class="fw-bolder">DIE</span></div>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav custom me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link text-white" href="/patients" data-link>Пациенты</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="/consultations"
+                                data-link>Консультации</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="/reports" data-link>Отчеты и
+                                статистика</a></li>
+                    </ul>
+                    <li class="nav-item">
+                        <div class="navbar__menu">
+                            <div class="dropdown">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link overflowed" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false"><span class="nav-username">Вход</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item nav-link" id="logout-a" href="/login">Выйти</a></li>
+                            <li><a class="dropdown-item nav-link" href="/profile">Профиль</a></li>
+                        </ul>
+                    </li>
+                </div>
+            </div>
+            </li>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <div id="app">
+        <div class="container-lg wrapper-container">
+            <div class="mb-3 page-title-wrapper">
+                <h1 class="page-title fw-bolder">Создание осмотра</h1>
+            </div>
+            <div class="container-lg">
+                <div class="container-lg filter-card mb-3" id="inspection-create-filter">
+                    <div class="page-title-wrapper inner ">
+                        <h5 class="fw-bolder">
+                            <span class="patient-card-head"></span>
+                            <img class="gender-icon" src="../images/gender-female.svg" alt="">
+                        </h5>
+                        <span class="patient-card-head-bday"></span>
+                    </div>
+                    <div class="row mt-3 mb-3">
+                        <div class="d-flex flex-row">
+                            <label class="form-check-label me-2 active-label" id="primary-label"
+                                for="inspection-type">Первичный осмотр</label>
+                            <div class="form-check form-switch custom-switch ">
+                                <input class="form-check-input switch-lg me-2" type="checkbox" id="inspection-type">
+                            </div>
+                            <label class="form-check-label" id="repeated-label" for="inspection-type">Повторный
+                                осмотр</label>
+                        </div>
+                    </div>
+                    <div class="col-6 mb-3 prev-inspection-wrapper d-none">
+                        <label for="prev-inspection" class="form-label">Предыдущий осмотр</label>
+                        <select class="form-select .single-select" id="prev-inspection">
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label for="inspection-date" class="form-label">Дата осмотра</label>
+                        <input class="form-control" id="inspection-date" name="inspection-date" type="datetime-local">
+                        <label for="inspection-date" id="inspection-date-label" class="form-label error d-none"></label>
+                    </div>
+                </div>
+                <div class="container-lg filter-card mb-3">
+                    <h5 class="h5-card mb-3">Жалобы</h5>
+                    <textarea class="form-control" id="complaint-text"></textarea>
+                    <label for="complaint-text" id="complaint-text-label" class="form-label error d-none"></label>
+                </div>
+                <div class="container-lg filter-card mb-3">
+                    <h5 class="h5-card mb-3">Анамнез заболевания</h5>
+                    <textarea class="form-control" id="disease-text"></textarea>
+                    <label for="disease-text" id="disease-text-label" class="form-label error d-none"></label>
+                </div>
+                <div class="container-lg filter-card consultation-create-container mb-3"> 
+                    <div class="card-head fw-bolder">
+                        <h5 class="h5-card">Консультация</h5>
+                        <button class="btn btn-danger mb-2 d-none" id="remove-consultation">Удалить</button>
+                    </div>
+                    <div class="container prev-consultation-holder" id="inner-consultation-holder">
+                        
+                    </div>
+                    <div class="row row-cols-2 align-items-center justify-content-between mb-3">
+                        <div class="col-6">
+                            <div class="form-check form-switch custom-switch align-items-center mb-2">
+                                <input class="form-check-input switch-lg me-2" type="checkbox" id="need-consultation">
+                                <label class="form-check-label" for="need-consultation">Требуется консультация</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <label for="specialty-select" class="form-label">Специальность</label>
+                            <select class="form-control single-select" placeholder="Укажите специальность"
+                                id="specialty-select" disabled>
+                            </select>
+                            <label for="specialty-select" id="specialty-label" class="form-label error d-none"></label>
+                        </div>
+                    </div>
+                    <div class="col mb-3">
+                        <label for="consultation-comment" class="form-label">Комментарий</label>
+                        <textarea class="form-control" id="consultation-comment" disabled></textarea>
+                        <label for="specialty-select" id="consultation-comment-label"
+                            class="form-label error d-none"></label>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-primary rounded" id="add-consultation-btn" disabled><img
+                                src="../images/plus-icon.svg"> Добавить
+                            консультацию</button>
+                    </div>
+                </div>
+                <div class="container-lg filter-card diagnoses-container mb-3">
+                    <div class="card-head fw-bolder">
+                        <h5 class="h5-card mb-3">Диагнозы</h5>
+                        <button class="btn btn-danger mb-2 d-none" id="remove-diagnosis">Удалить</button>
+                    </div>
+                    <div class="container prev-diagnosis-holder mb-2"></div>
+                    <div class="col mb-3">
+                        <label for="diagnosis-select" class="form-label">Болезни</label>
+                        <select class="form-control single-select" placeholder="Выберите диагноз" id="diagnosis-select">
+                        </select>
+                        <label for="diagnosis-select" id="diagnosis-select-label"
+                            class="form-label error d-none"></label>
+                        <textarea class="form-control mt-3" id="diagnosis-description-text"></textarea>
+                        <label for="diagnosis-description-text" id="diagnosis-description-text-label"
+                            class="form-label error d-none"></label>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <label for="diagnosis-type" class="form-label">Тип диагноза в осмотре</label>
+                        <select class="form-select" id="diagnosis-type">
+                            <option value="Main">Основной</option>
+                            <option value="Concomitant">Сопутствующий</option>
+                            <option value="Complication">Осложнение</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-primary rounded" id="add-diagnosis-btn">
+                            <img src="../images/plus-icon.svg">
+                            Добавить диагноз</button>
+                    </div>
+                </div>
+                <div class="container-lg filter-card mb-3">
+                    <h5 class="h5-card mb-3">Рекомендации по лечению</h5>
+                    <textarea class="form-control" id="recommendation-text"></textarea>
+                    <label for="recommendation-text" id="recommendation-text-label" class="form-label error d-none"></label>
+                </div>
+                <div class="container-lg filter-card conclusion-container mb-3">
+                    <h5 class="h5-card mb-3">Заключение</h5>
+                    <div class="row row-cols-2">
+                        <div class="col mb-3">
+                            <label for="conclusion-type" class="form-label">Заключение</label>
+                            <select class="form-select" id="conclusion-type">
+                                <option value="Recovery">Выздоровление</option>
+                                <option value="Disease">Болезнь</option>
+                                <option value="Death">Смерть</option>
+                            </select>
+                        </div>
+                        <div class="col datetime-info mb-3 d-none">
+                            <label for="conclusion-date" class="form-label" id="conclusion-date">Дата и время смерти</label>
+                            <input class="form-control" id="conclusion-datetime" name="conclusion-datetime"
+                                type="datetime-local">
+                            <label for="conclusion-date" id="conclusion-date-label"
+                                class="form-label error d-none"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center align-items-center mt-3">
+                    <div class="button-wrapper mt-3">
+                        <div class="col me-3">
+                            <button type="button" class="btn btn-primary rounded" id="save-btn">Сохранить
+                                осмотр</button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-secondary rounded" id="cancel-btn">Отмена</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../scripts/inspection/inspection.js"></script>
+</body>
+
+</html>

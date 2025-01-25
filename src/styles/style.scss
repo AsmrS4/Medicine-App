@@ -1,0 +1,317 @@
+@import "variables.scss";
+@import "mixins.scss";
+@import "pagination.scss";
+@import "buttons.scss";
+@import "card.scss";
+@import "patient.scss";
+
+body {
+    @include flex-column;
+    font-family: "Montserrat", sans-serif;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.form-check {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.list-group {
+    z-index: 1;
+    max-height: 100px;
+    height: auto;
+    overflow: scroll;
+
+    .list-group-item {
+        z-index: 1;
+    }
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+#app {
+    @include flex-column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.header {
+    width: 100%;
+    height: auto;
+    background-color: $header-color;
+
+    @media (max-width:992px) {
+        .overflowed {
+            max-width: 100%;
+            width: 100%;
+
+            span.nav-username {
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+    }
+}
+
+.select2-dropdown {
+    z-index: 99999;
+}
+
+.container-fluid.custom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 36px;
+    padding-right: 36px;
+    color: $default-color;
+}
+
+li {
+    list-style-type: none;
+}
+
+a,
+a:hover,
+a:active {
+    text-decoration: none;
+    color: #000
+}
+
+.navbar__logo {
+    @include flex-row;
+    @include fill-width(140);
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 48px;
+
+    .navbar__icon {
+
+        img {
+            @include sqare-shape-mod-2(16);
+        }
+    }
+
+    .navbar__title {
+        @include flex-column;
+        align-items: flex-end;
+        justify-content: space-between;
+
+        span {
+            font-size: 18px;
+            font-weight: 400;
+        }
+    }
+}
+
+.unauth {
+    justify-content: space-between;
+
+    #navbarSupportedContent.collapse.navbar-collapse {
+        justify-content: right
+    }
+}
+
+.navbar__menu {
+    @include flex-row;
+    @include flex-all-centered;
+    color: $default-color;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.nav-username {
+    min-width: 140px;
+    max-width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: start
+}
+
+.overflowed {
+    @include fill-width(160);
+    min-width: 140px;
+    background-color: inherit;
+    border: none;
+    overflow: hidden;
+    text-align: center;
+    text-transform: none;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: start;
+}
+
+.form-label.error {
+    width: 100%;
+    color: red;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.dropdown-menu {
+    text-align: center;
+}
+
+.nav-link.custom:hover {
+    background-color: inherit;
+    border-color: inherit;
+}
+
+.container.base-form {
+    @include flex-column;
+    justify-content: space-between;
+    max-width: $sm-width;
+    width: 100%;
+    padding: 20px 40px;
+    border-radius: 20px;
+    margin: 30px;
+    background-color: $form-color;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.login-form {
+    margin: 20px 0;
+}
+
+.register-form {
+    margin: 20px 0;
+
+    @media (max-width:480px) {
+        .row {
+            @include flex-column
+        }
+    }
+}
+
+.profile-form {
+    @media (max-width:480px) {
+        .row {
+            @include flex-column
+        }
+    }
+}
+
+.modal-body{
+    @media (max-width:480px) {
+        .row {
+            @include flex-column
+        }
+    }
+}
+
+.form-select__specialties {
+    height: 150px;
+    scrollbar-width: none;
+}
+
+.wrapper-container {
+    @include flex-column;
+    max-width: $lg-width;
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.page-title-wrapper.inner {
+    padding: 0
+}
+
+.page-title-wrapper,
+.mb-3.page-title-wrapper {
+    @include flex-row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 20px;
+
+    .page-title {
+        width: auto;
+        margin: 0;
+        padding: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-right: 24px;
+    }
+
+    @media(max-width:624px) {
+        .btn-wrapper {
+            #register-new-patient-btn {
+                span {
+                    display: none;
+                }
+
+                .add-icon {
+                    margin: 0
+                }
+            }
+        }
+    }
+
+}
+
+#sort-select,
+#count-select {
+    @include fill-width(300);
+}
+
+.select2-selection__choice {
+    background-color: $blue-color !important;
+    color: #fff;
+    font-size: 16px;
+    padding: 0;
+    border: none;
+}
+
+label {
+    font-weight: 500;
+    color: #b4b4c4;
+}
+
+.row.row-cols-3.w-100.mb-3 {
+    align-items: center;
+}
+
+.select2-selection__choice__remove {
+    color: #fff !important;
+    border-right: #fff !important;
+    padding: 0;
+}
+
+.select2-selection__choice__remove:hover {
+    background-color: $header-color !important;
+}
+
+span.select2-selection.select2-selection--single,
+span.select2-selection.select2-selection--multiple {
+    min-height: 37.2px !important;
+    border-color: #dee2e6 !important;
+}
+
+span.select2-selection.select2-selection--single {
+    display: flex;
+    align-items: center;
+
+    span.select2-selection__arrow {
+        margin-top: 4px;
+    }
+}
+
+textarea.form-control {
+    resize: none;
+}

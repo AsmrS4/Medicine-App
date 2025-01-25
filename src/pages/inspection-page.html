@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/styles/app.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid custom">
+                <div class="navbar__logo">
+                    <div class="navbar__icon"><img src="/images/skull.svg.svg" alt="skull"></div>
+                    <div class="navbar__title"><span class="fw-normal">Try not to</span><span
+                            class="fw-bolder">DIE</span></div>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav custom me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link text-white" href="/patients" data-link>Пациенты</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="/consultations"
+                                data-link>Консультации</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="/reports" data-link>Отчеты и
+                                статистика</a></li>
+                    </ul>
+                    <li class="nav-item">
+                        <div class="navbar__menu">
+                            <div class="dropdown">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link overflowed" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false"><span class="nav-username">Вход</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item nav-link" id="logout-a" href="/login">Выйти</a></li>
+                            <li><a class="dropdown-item nav-link" href="/profile">Профиль</a></li>
+                        </ul>
+                    </li>
+                </div>
+            </div>
+            </li>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <div id="app">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" id="inspection-edit-modal">
+                <div class="modal-content">
+                    <h2 class="page-title fw-bolder">Редактирование осмотра</h2>
+                    <div class="modal-body">
+                        <div class="container-lg filter-card diagnoses-container mb-3">
+                            <div class="card-head fw-bolder">
+                                <h5 class="h5-card mb-3">Диагнозы</h5>
+                                <button class="btn btn-danger mb-2 d-none" id="remove-diagnosis">Удалить</button>
+                            </div>
+                            <div class="container prev-diagnosis-holder mb-2" id="prev-diagnosis-edit"></div>
+                            <div class="col mb-3">
+                                <label for="diagnosis-select" class="form-label">Болезни</label>
+                                <select class="form-control single-select" placeholder="Выберите диагноз"
+                                    id="diagnosis-select-2">
+                                </select>
+                                <label for="diagnosis-select" id="diagnosis-select-label"
+                                    class="form-label error d-none"></label>
+                                <textarea class="form-control mt-3" id="diagnosis-description-text"></textarea>
+                                <label for="diagnosis-description-text" id="diagnosis-description-text-label"
+                                    class="form-label error d-none"></label>
+                            </div>
+                            <div class="col-4 mb-3">
+                                <label for="diagnosis-type" class="form-label">Тип диагноза в осмотре</label>
+                                <select class="form-select" id="diagnosis-type">
+                                    <option value="Main">Основной</option>
+                                    <option value="Concomitant">Сопутствующий</option>
+                                    <option value="Complication">Осложнение</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-primary rounded" id="add-diagnosis-btn">
+                                    <img src="../images/plus-icon.svg">
+                                    Добавить диагноз</button>
+                            </div>
+                        </div>
+
+                        <div class="container-lg filter-card mb-3">
+                            <h5 class="h5-card mb-3">Жалобы</h5>
+                            <textarea class="form-control" id="complaint-text"></textarea>
+                            <label for="complaint-text" id="complaint-text-label"
+                                class="form-label error d-none"></label>
+                        </div>
+                        <div class="container-lg filter-card mb-3">
+                            <h5 class="h5-card mb-3">Анамнез заболевания</h5>
+                            <textarea class="form-control" id="disease-text"></textarea>
+                            <label for="disease-text" id="disease-text-label" class="form-label error d-none"></label>
+                        </div>
+                        <div class="container-lg filter-card mb-3">
+                            <h5 class="h5-card mb-3">Рекомендации по лечению</h5>
+                            <textarea class="form-control" id="recommendation-text"></textarea>
+                            <label for="recommendation-text" id="recommendation-text-label"
+                                class="form-label error d-none"></label>
+                        </div>
+
+                        <div class="container-lg filter-card conclusion-container mb-3 ">
+                            <h5 class="h5-card mb-3">Заключение</h5>
+                            <div class="row row-cols-2">
+                                <div class="col mb-3">
+                                    <label for="conclusion-type" class="form-label">Заключение</label>
+                                    <select class="form-select" id="conclusion-type">
+                                        <option value="Recovery">Выздоровление</option>
+                                        <option value="Disease">Болезнь</option>
+                                        <option value="Death">Смерть</option>
+                                    </select>
+                                </div>
+                                <div class="col datetime-info mb-3 d-none">
+                                    <label for="conclusion-date" class="form-label" id="conclusion-date">Дата и время
+                                        смерти</label>
+                                    <input class="form-control" id="conclusion-datetime" name="conclusion-datetime"
+                                        type="datetime-local">
+                                    <label for="conclusion-date" id="conclusion-date-label"
+                                        class="form-label error d-none"></label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center mt-3">
+                        <div class="button-wrapper mt-3">
+                            <div class="col me-3">
+                                <button type="button" class="btn btn-primary rounded" id="save-btn">Сохранить
+                                    осмотр</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-secondary rounded" id="cancel-btn">Отмена</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-lg wrapper-container">
+            <div class="container-lg">
+                <div class="container-lg filter-card mb-3">
+                    <div class="page-title-wrapper inner ">
+                        <h3 class="fw-bolder h5-card" id="h3-date"></h3>
+                        <button class="btn btn-primary d-none" id="edit-inspection-btn" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">Редактировать осмотр</button>
+                    </div>
+                    <div class="card custom patient-card">
+                        <div class="fw-bolder mt-2 mb-1">
+                            <span id="patient-name-span"></span>
+                        </div>
+                        <div class="card-body inner-card">
+                            <div class="card-info">
+                                <span class="card-info__item">Пол:
+                                    <span class="bold" id="span-gender"></span>
+                                </span>
+                                <span class="card-info__item">Дата рождения:
+                                    <span class="bold" id="span-bday"></span>
+                                </span>
+                                <span class="card-info__item mt-3 last">Медицинский работник:
+                                    <span class="bold" id="span-doctor"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-lg filter-card mb-3">
+                    <h5 class="h5-card mb-3">Жалобы</h5>
+                    <span id="complaints">Какие-то жалобы</span>
+                </div>
+                <div class="container-lg filter-card mb-3">
+                    <h5 class="h5-card mb-3">Анамнез заболевания</h5>
+                    <span id="anamnesis">Какой-то анамнез</span>
+                </div>
+                <div class="container-lg filter-card mb-3">
+                    <div class="card-head fw-bolder">
+                        <h5 class="h5-card">Консультация</h5>
+                    </div>
+                    <div class="consultation-info mt-2">
+
+                    </div>
+                    <div class="container prev-consultation-holder" id="inner-consultation-holder">
+
+                    </div>
+                </div>
+                <div class="container-lg filter-card mb-3">
+                    <div class="card-head fw-bolder">
+                        <h5 class="h5-card mb-3">Диагнозы</h5>
+                    </div>
+                    <div class="container prev-diagnosis-holder" id="prev-diagnosis">
+
+                    </div>
+                </div>
+                <div class="container-lg filter-card mb-3">
+                    <h5 class="h5-card mb-3">Рекомендации по лечению</h5>
+                    <span id="treatment">Какие-то рекомендации</span>
+                </div>
+
+                <div class="container-lg filter-card mb-3" id="conclusion-field">
+                    <h5 class="h5-card mb-3">Заключение</h5>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../scripts/inspection/inspection-page.js"></script>
+</body>
+
+</html>

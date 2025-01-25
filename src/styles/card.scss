@@ -1,0 +1,403 @@
+.card.custom,
+.card.custom.patient-card {
+    background-color: $form-color;
+    border: none;
+    @include flex-column;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+
+    .card-head {
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 16px;
+        width: 100%;
+        font-size: 14px
+    }
+
+    .card-info {
+        @include flex-column;
+        font-size: 14px
+    }
+
+    @media(min-width:767px) {
+
+        .card-head.consultation-name.fw-bolder,
+        .card-head.patient-name.fw-bolder {
+            .card-details {
+                li.detail {
+                    span {
+                        display: none
+                    }
+                }
+            }
+        }
+    }
+
+    @media(max-width: 632px) {
+
+        .card-head.consultation-name.fw-bolder,
+        .card-head.patient-name.fw-bolder {
+            .card-details {
+                li.detail {
+                    span {
+                        display: none
+                    }
+                }
+            }
+        }
+    }
+
+    @media(max-width: 402px) {
+
+        .card-head.consultation-name.fw-bolder,
+        .card-head.patient-name.fw-bolder {
+            .card-details {
+                span {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    max-width: 100px;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.inner-card {
+    padding: 0;
+    padding-bottom: 8px;
+
+}
+
+.not-found-holder {
+    border-radius: 8px;
+    height: 576px;
+    @include flex-column;
+    align-self: center;
+    align-items: center;
+    justify-content: space-between;
+
+    .not-found {
+        @include flex-column;
+        align-items: center;
+
+        .code-404 {
+            margin-top: 64px;
+            font-size: 96px;
+            font-weight: 600;
+            color: $button-secondary-color;
+        }
+
+        .not-found-title {
+            font-size: 32px;
+            font-weight: 500;
+            color: $button-secondary-color;
+            text-align: center;
+        }
+    }
+
+    .btn.btn-secondary {
+        width: 100%;
+        max-width: 320px;
+        padding: 10px 0;
+        font-size: 18px;
+    }
+}
+
+.consultation-create-container {
+    @media (max-width: 576px) {
+        .row.row-cols-2.align-items-center.justify-content-between.mb-3 {
+            .col-6 {
+                width: 100%;
+            }
+        }
+
+        #add-consultation-btn {
+            width: 100%;
+        }
+    }
+}
+
+.conclusion-container {
+    @media (max-width:576px) {
+
+        .row.row-cols-2 {
+            @include flex-column;
+
+            .col {
+                width: 100%;
+
+                #conclusion-type {
+                    width: 100%;
+                }
+            }
+
+            .col.datetime-info {
+                width: 100%;
+
+                #conclusion-datetime {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.diagnoses-container {
+    @media (max-width:576px) {
+        .col-4.mb-3 {
+            width: 100%;
+        }
+
+        .col {
+            #add-diagnosis-btn {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.report-date {
+    box-sizing: border-box;
+    height: auto;
+    background-color: $button-color;
+    border: 1px solid $button-secondary-color;
+    border-bottom: none;
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 260px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.report-date-span {
+    color: $default-color;
+    font-weight: 500;
+    margin-right: 8px;
+}
+
+.report-container {
+    padding: 4px;
+    padding-top: 20px;
+    overflow: scroll;
+}
+
+.num {
+    text-align: center;
+}
+
+.table-bordered {
+    border: 1px solid $button-secondary-color
+}
+
+.report-table-head {
+    tr {
+        th {
+            background-color: $button-color !important;
+            color: $default-color;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+            width: auto;
+        }
+    }
+}
+
+.num {
+    width: 50px;
+}
+
+.patient-name-col {
+    text-align: start;
+
+}
+
+.light {
+    background-color: $default-color;
+    padding: 4px;
+    border-radius: 3px;
+}
+
+.card-info.light {
+    padding: 8px 10px;
+    border: 1px solid #c2c2c8;
+    ;
+}
+
+.consultation-card-holder,
+.patient-card-holder {
+    @include two-column;
+    padding: 0;
+
+    @media(max-width: 768px) {
+        @include one-column
+    }
+}
+
+.prev-consultation-holder,
+.prev-diagnosis-holder {
+    margin: 0;
+    padding: 0;
+}
+
+.prev-consultation-holder span {
+    color: $header-color;
+}
+
+.card-info__item {
+    font-weight: 500;
+}
+
+.card-info__item.last {
+    color: #b4b4c4;
+}
+
+.is-dead {
+    background-color: $death-color !important;
+}
+
+.inspection-date {
+    padding: 2px 6px;
+    border-radius: 3px;
+    background-color: #999eab;
+    font-size: 12px;
+    text-align: center;
+    margin-right: 8px;
+    color: $default-color;
+    white-space: nowrap;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.h5-card {
+    color: $header-color;
+    font-weight: 600
+}
+
+.filter-card {
+    @include flex-column;
+    justify-content: space-between;
+    width: 100%;
+    border-radius: 5px;
+    padding: 0;
+    background-color: $form-color;
+    padding: 20px;
+
+    .filter-title {
+        display: flex;
+        align-self: self-start;
+        width: auto;
+    }
+
+}
+
+.filter-card {
+    @media(max-width:768px) {
+        .row.row-cols-2.w-100.mb-3 {
+            display: flex;
+            flex-direction: column;
+
+            .col {
+                width: 100%;
+                margin-bottom: 24px;
+            }
+        }
+
+        .row.row-cols-3.w-100.mb-3 {
+            display: flex;
+            flex-direction: column;
+
+            .col-6,
+            .col-5,
+            .col-4,
+            .col-3 {
+                width: 100%;
+            }
+
+            .col-5,
+            .col-4 {
+                margin-bottom: 24px;
+            }
+        }
+
+        .filters-wrapper {
+            flex-direction: column;
+
+            .col-4,
+            .col-3 {
+                width: 100%;
+            }
+
+            .col-4 {
+                margin-bottom: 24px;
+            }
+        }
+    }
+}
+
+.nothing {
+    display: flex;
+    @include flex-column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 324px;
+
+    .nothing-text {
+        color: $page-link-color;
+    }
+}
+
+.empty {
+    @media (min-width: 128px) {
+        @include flex-all-centered;
+    }
+}
+
+.active-label {
+    color: $button-color;
+    font-weight: 600;
+}
+
+.card-info__item {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.inner-item {
+
+    border: 2px solid #dee2e6 !important;
+}
+
+.grouped-card-holder {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.card.custom.inner-item {
+    width: 95%;
+}
+
+.separator {
+    margin-left: 4px;
+    margin-right: 4px;
+    width: 16px;
+    border-left: 2px solid #b4b4c4;
+    border-bottom: 2px solid #b4b4c4;
+    height: 32px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
